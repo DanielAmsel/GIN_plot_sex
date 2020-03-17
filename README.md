@@ -5,7 +5,7 @@ R script for plotting the sex based on bam file.
 
 R 3.4.4
 
-GGPLOT2 3.3.0
+ggplot2 3.3.0
 
 ## Running the script: 
 ```
