@@ -1,6 +1,12 @@
 # Plot Sex Prediction
 R script for plotting the sex based on bam file.
 
+## Dependencies:
+
+R 3.4.4
+
+GGPLOT2 3.3.0
+
 ## Running the script: 
 ```
 ./plot_sex.R input.csv 
