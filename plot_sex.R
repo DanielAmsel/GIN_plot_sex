@@ -8,7 +8,7 @@ if (length(args)==1) {
   stop("Please provide only one input file.n", call.=FALSE)
 }
 #for testing
-input_file = "/mnt/STORAGE/workdir/GIN_plot_sex/example/test_sex.csv"
+#input_file = "/mnt/STORAGE/workdir/GIN_plot_sex/example/test_sex.csv"
 
 # expect output from: https://github.com/edawson/check-sex
 # looks like: 
@@ -25,11 +25,11 @@ female <- data.frame(xmin=4.5, xmax=7.0, ymin=-Inf, ymax=Inf)
 
 figure <- ggplot(d, aes(x=Inf, y=Inf))+
   geom_point(aes(x=sex_value, y=1), colour="black", size=5)+ 
-  geom_rect(data=male,aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),alpha=0.1)+
-  geom_rect(data=female,aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),alpha=0.1)+
+  geom_rect(data=male,aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),alpha=0.3)+
+  geom_rect(data=female,aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),alpha=0.3)+
   xlim(0,8)+
   xlab("sex prediction")+
-  scale_y_continuous(name="male", breaks=NULL, sec.axis = sec_axis(~., name = "female", breaks=NULL))+
+  scale_y_continuous(name="male", breaks=NULL, sec.axis = sec_axis(~., name = "female"))+
   theme_minimal()
 figure
 ggsave("plot.png", width=100, height=25, units="mm")
