@@ -1,13 +1,17 @@
 # Plot Sex Prediction
 R script for plotting the sex based on bam file.
 
-Running the script: 
+## Running the script: 
 ```
 ./plot_sex.R input.csv 
 ``` 
 
 
-Output: plot.png
+## Output: 
+``` 
+plot.png
+``` 
+
 ![ExamplePlot](/example/plot.png)
 
 
