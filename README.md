@@ -7,6 +7,9 @@ R 3.4.4
 
 ggplot2 3.3.0
 
+## Docker
+https://hub.docker.com/r/vaktson/gin_plot_sex
+
 ## Running the script: 
 ```
 ./plot_sex.R input.csv 
