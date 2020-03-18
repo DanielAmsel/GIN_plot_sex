@@ -1,6 +1,8 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 # adapted from https://github.com/edawson/check-sex/blob/master/Dockerfile
 
+ENV TZ=Europe/Berlin
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update &&  apt-get install -y \
         autoconf \
@@ -11,7 +13,7 @@ RUN apt-get update &&  apt-get install -y \
         cmake \
         dstat \
         gawk \
-        gcc-4.9 \
+        gcc \
         git \
         gnupg \
         libcurl4-gnutls-dev \
@@ -44,5 +46,5 @@ RUN cd samtools-1.3.1 && make -j 4 && make install
 
 RUN git clone --recursive https://github.com/edawson/check-sex && cd check-sex && cp check_sex_samtools.sh /usr/bin/
 
-RUN Rscript -e "install.packages('ggplo2')"
-RUN git clone --recursive https://github.com/DanielAmsel/GIN_plot_sex.git && cp plot_sex.R /usr/bin && chmod +x /usr/bin/plot_sex.R 
+RUN Rscript -e "install.packages('ggplot2',repos = 'http://cran.us.r-project.org')"
+RUN git clone --recursive https://github.com/DanielAmsel/GIN_plot_sex.git && cp GIN_plot_sex/plot_sex.R /usr/bin && chmod +x /usr/bin/plot_sex.R 
